@@ -1,0 +1,8 @@
+{
+"database": "bi_prod", 
+"user":"analitics_readonly", 
+"password": "S?gR-XV4Fy6ZbsvG", 
+"host": "10.200.0.237", 
+"port": "5432",
+"options": "-c search_path=dbo,public"
+}
