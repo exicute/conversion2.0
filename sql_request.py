@@ -43,12 +43,6 @@ def get_table_sql():
                         and ecp1.phone IS NOT NULL
                         and NOT ecp1.phone LIKE '%%undefined%%'
                         LIMIT 1,1) "Телефон клиента 2"
-                        , (SELECT ecp1.phone
-                        FROM exist_client_phones ecp1
-                        WHERE ec.id = ecp1.client_id
-                        and ecp1.phone IS NOT NULL
-                        and NOT ecp1.phone LIKE '%%undefined%%'
-                        LIMIT 2,0) "Телефон клиента 3"
 
                         , u.id as "id риэлтора", u.fio as "ФИО риэлтора", (SELECT q.fio FROM users q WHERE u.manager_id = q.id) AS 'ФИО менеджера', objects.sold_date as "дата продажи"
                         -- , ecp.client_id
