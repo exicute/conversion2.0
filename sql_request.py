@@ -43,6 +43,12 @@ def get_table_sql():
                         and ecp1.phone IS NOT NULL
                         and NOT ecp1.phone LIKE '%%undefined%%'
                         LIMIT 1,1) "Телефон клиента 2"
+                        , (SELECT ecp1.phone
+                        FROM exist_client_phones ecp1
+                        WHERE ec.id = ecp1.client_id
+                        and ecp1.phone IS NOT NULL
+                        and NOT ecp1.phone LIKE '%%undefined%%'
+                        LIMIT 2,0) "Телефон клиента 3"
 
                         , u.id as "id риэлтора", u.fio as "ФИО риэлтора", (SELECT q.fio FROM users q WHERE u.manager_id = q.id) AS 'ФИО менеджера', objects.sold_date as "дата продажи"
                         -- , ecp.client_id
@@ -56,7 +62,7 @@ def get_table_sql():
                         LEFT JOIN objects ON ot.object_id = objects.id
 
                         where ot.created >= "2022-01-01"
-                        and ot.city_id = 23
+                        and (ot.city_id = 23 or ot.city_id = 155)
                         and ot.type_id in (3,7,11,14)
                         -- AND ot.ticket_id = "29915860"
                         AND (SELECT ecp1.phone
