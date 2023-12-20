@@ -1,5 +1,5 @@
 import datetime, time
-import datedelta
+#import datedelta
 import pandas as pd
 import datetime
 import re, ast
@@ -16,8 +16,9 @@ def get_table_sql():
     '''
     
     try:
-        DOC = open(r'Z:\Аналитический отдел\Харайкин М.А\Python\connection str RIES.txt')
+        DOC = open(r'connection str BI.txt')
     except FileNotFoundError:
+        #DOC = open(r'\connection str BI.txt')
         DOC = open(r'C:\Users\ws-tmn-an-15\Desktop\Харайкин М.А\Python документы\connection str RIES.txt')
     CONNECT = DOC.read()
     CONNECT = ast.literal_eval(re.sub(r'\n','', CONNECT))
