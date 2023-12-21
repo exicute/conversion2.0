@@ -1,0 +1,12 @@
+{
+"user": 'a.a.tihomirova', 
+"user_temp": 'an_ivanov_a_e', 
+"user1": 'an_amirova_a_r', 
+"password": 'WtQg6JBF1jkW',
+"password_temp": 'HEpaA7fqsBpJSmz4',
+"password1": 'tjYHPxv9Q6q4bfeq',
+"database": 'ries.etagi.com',
+"host": '10.110.22.30',
+"host1": '10.200.0.137'
+
+}
