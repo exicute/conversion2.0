@@ -16,10 +16,10 @@ def get_table_sql():
     '''
     
     try:
-        DOC = open(r'connection str BI.txt')
+        DOC = open(r'connection str RIES.txt')
     except FileNotFoundError:
-        #DOC = open(r'\connection str BI.txt')
-        DOC = open(r'C:\Users\ws-tmn-an-15\Desktop\Харайкин М.А\Python документы\connection str RIES.txt')
+        DOC = open(r'\connection str BI.txt')
+        #DOC = open(r'C:\Users\ws-tmn-an-15\Desktop\Харайкин М.А\Python документы\connection str RIES.txt')
     CONNECT = DOC.read()
     CONNECT = ast.literal_eval(re.sub(r'\n','', CONNECT))
     
@@ -63,7 +63,7 @@ def get_table_sql():
                         LEFT JOIN objects ON ot.object_id = objects.id
 
                         where ot.created >= "2022-01-01"
-                        and (ot.city_id = 23 or ot.city_id = 155)
+                        and ot.city_id = 23
                         and ot.type_id in (3,7,11,14)
                         -- AND ot.ticket_id = "29915860"
                         AND (SELECT ecp1.phone
