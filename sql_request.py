@@ -63,7 +63,7 @@ def get_table_sql(city_id):
                         LEFT JOIN objects ON ot.object_id = objects.id
 
                         where ot.created >= "2022-01-01"
-                        and ot.city_id = f{city_id}
+                        and ot.city_id = {0}
                         and ot.type_id in (3,7,11,14)
                         -- AND ot.ticket_id = "29915860"
                         AND (SELECT ecp1.phone
@@ -89,7 +89,7 @@ def get_table_sql(city_id):
                         -- LIMIT 100000
 
 
-                           """, con=db_connection, 
+                           """.format(city_id), con=db_connection, 
                            #parse_dates={'дата создания заявки на покупку/продажу': {'format': '%d/%m/%y'},
                            #                                     'дата закрытия заявки на покупку/продажу': {'format': '%d/%m/%y'}}
                            )
