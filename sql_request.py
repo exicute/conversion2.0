@@ -6,7 +6,7 @@ import re, ast
 from sqlalchemy import create_engine
 
 
-def get_table_sql():
+def get_table_sql(city_id):
     '''
     current_date = datetime.today()
     c_day = current_date.day
@@ -63,7 +63,7 @@ def get_table_sql():
                         LEFT JOIN objects ON ot.object_id = objects.id
 
                         where ot.created >= "2022-01-01"
-                        and ot.city_id = 23
+                        and ot.city_id = f{city_id}
                         and ot.type_id in (3,7,11,14)
                         -- AND ot.ticket_id = "29915860"
                         AND (SELECT ecp1.phone
