@@ -27,7 +27,12 @@ def get_table_sql(city_id):
 
     df_query = pd.read_sql("""
                         SELECT cities.name as "Город"
-                        , ot.ticket_id as "Номер заявки на покупку/продажу", DATE_FORMAT(ot.created,'%%d.%%m.%%y') AS "дата создания заявки на покупку/продажу", DATE_FORMAT(ot.closed,'%%d.%%m.%%y') AS "дата закрытия заявки на покупку/продажу", ost_ticket_types.type_name AS "типзаявки на покупку/продажу", ot.status AS " статус заявки"
+                        , ot.ticket_id as "Номер заявки на покупку/продажу", DATE_FORMAT(ot.created,'%%d.%%m.%%y') AS "дата создания заявки на покупку/продажу"
+                        , DATE_FORMAT(ot.closed,'%%d.%%m.%%y') AS "дата закрытия заявки на покупку/продажу"
+                        , ost_ticket_types.type_name AS "типзаявки на покупку/продажу"
+                        , ot.status AS " статус заявки"
+                        , ot.close_status AS "close_status"
+
                         -- , ecp.phone as "Телефон клиента"
                         , (select concat(last_name, " ", first_name," ", middle_name)
                         from exist_clients 
